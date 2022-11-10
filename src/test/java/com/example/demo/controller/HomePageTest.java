@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -24,11 +25,11 @@ public class HomePageTest extends AbstractTestNGSpringContextTests {
 
   @Test
   public void testHello() throws Exception {
-    this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Hello, world!")));
+    this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(equalTo("Hello, world!")));
   }
 
   @Test
   public void testHelloWithParam() throws Exception {
-    this.mockMvc.perform(get("/Bright")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Hello, Bright")));
+    this.mockMvc.perform(get("/Bright")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(equalTo("Hello, Bright")));
   }
 }
