@@ -1,5 +1,4 @@
 name: Gradle Build
-run-name: build sprint web
 
 on:
   push:
