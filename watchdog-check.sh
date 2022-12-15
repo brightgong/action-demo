@@ -13,7 +13,6 @@ code=$(curl -k -o /dev/null -s -w "%{http_code}\n" https://${VAULT_AUTOUNSEAL_SE
 echo "response code is ${code}"
 if [ $code -eq 200 ]; then
   echo "auto unseal success"
-  sleep 3600
 else
   curl -k https://${VAULT_AUTOUNSEAL_SERVICE_HOST}:${VAULT_AUTOUNSEAL_SERVICE_PORT}/v1/sys/health
   exit -1
